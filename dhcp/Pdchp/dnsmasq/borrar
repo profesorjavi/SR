@@ -1,0 +1,4 @@
+ docker stop  dnsmasq
+ docker rm dnsmasq
+ docker rmi dnsmasq
+

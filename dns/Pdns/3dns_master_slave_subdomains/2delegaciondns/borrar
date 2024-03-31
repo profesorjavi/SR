@@ -1,0 +1,12 @@
+ docker stop dnsprincipal
+ docker rm dnsprincipal
+ docker rmi dnsprincipal
+
+ docker stop dnsprincipalsubdominios
+ docker rm dnsprincipalsubdominios
+ docker rmi dnsprincipalsubdominios
+
+ docker stop dnssecundario
+ docker rm dnssecundario
+ docker rmi dnssecundario
+

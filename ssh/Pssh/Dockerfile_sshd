@@ -1,0 +1,30 @@
+
+FROM ubuntu:latest
+
+MAINTAINER Javier garcia
+
+#Update APT repository & Install OpenSSH
+RUN apt-get update \
+    && apt-get install -y openssh-server \
+    && apt-get install -y ssh \
+    && apt-get install -y net-tools \
+    && apt-get install -y dnsutils
+
+#Directorio necesario para la operatividad de SSH-SERVER
+RUN mkdir /run/sshd
+
+
+#Añadmimos una contraseña a root
+RUN echo 'root:admini' | chpasswd
+
+#Modificamos el archivo de configuración para permitir el acceso a root
+  #RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' \
+  #    /etc/ssh/sshd_config
+ADD ./sshd_config /etc/ssh/sshd_config
+
+#expose port 22
+EXPOSE 22
+
+#Commands to be executed by default
+CMD ["/usr/sbin/sshd","-D"]
+

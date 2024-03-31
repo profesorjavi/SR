@@ -1,0 +1,19 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	dns3.admin.seniaTIC.org. admin.admin.seniaTIC.org. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+
+@   IN  NS dns3.admin.seniaTIC.org.
+
+$ORIGIN admin.seniaTIC.org.
+dns3    IN  A   192.168.10.5
+
+admin1   IN      A       192.168.40.11
+admin2   IN      A       192.168.40.12

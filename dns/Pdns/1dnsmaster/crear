@@ -1,0 +1,5 @@
+clear
+docker build -t dnsprincipal  ./
+docker run -it -d --name dnsprincipal --network LAN dnsprincipal  
+
+docker ps

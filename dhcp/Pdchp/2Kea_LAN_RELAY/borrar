@@ -1,0 +1,4 @@
+ docker stop kealan
+ docker rm kealan
+ docker rmi kealan
+
