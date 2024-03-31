@@ -1,0 +1,6 @@
+clear
+docker build -t kealan ./
+docker run -it -d --name kealan kealan  
+
+docker ps -a
+docker logs kealan

@@ -1,0 +1,12 @@
+clear
+docker build -t dnsprincipal  ./principal/
+docker run -it -d --name dnsprincipal --network LAN --ip 192.168.10.2 dnsprincipal  
+docker ps
+
+docker build -t dnsprincipalsubdominios  ./principalsubdominios/
+docker run -it -d --name dnsprincipalsubdominios --network LAN --ip 192.168.10.5 dnsprincipalsubdominios  
+docker ps
+
+docker build -t dnssecundario  ./secundario/
+docker run -it -d --name dnssecundario --network LAN --ip 192.168.10.3 dnssecundario 
+docker ps

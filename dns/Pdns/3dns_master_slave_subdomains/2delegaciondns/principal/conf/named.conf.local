@@ -1,0 +1,24 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+
+include "/etc/bind/zones.rfc1918";
+
+zone "seniaTIC.org" {
+    type master;
+    file "/etc/bind/db.seniaTIC.org";
+    allow-transfer {192.168.10.3;};
+    notify yes; # Se indica para que cuando realicemos alguna modificación en la zona se avise al secundario.
+
+};
+
+zone "10.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.10.168.192";
+    allow-transfer {192.168.10.3;};
+    notify yes;
+};
+

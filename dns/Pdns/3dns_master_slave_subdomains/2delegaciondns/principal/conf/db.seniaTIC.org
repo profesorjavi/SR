@@ -1,0 +1,35 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	seniaTIC.org. admin.seniaTIC.org. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+
+
+$ORIGIN seniaTIC.org.
+@	IN	NS	dns1.seniaTIC.org.
+@	IN	NS	dns2.seniaTIC.org.
+;Configuración de los equipos y servidores LAN
+dns1	IN	A	192.168.10.2
+dns2	IN	A	192.168.10.3
+dhcp    IN	A	192.168.10.4
+pc01    IN	A	192.168.10.11
+pc02    IN	A	192.168.10.12
+pc03    IN	A	192.168.10.13
+;Configuración de los servidores DMZ
+www    IN	A	10.0.1.2
+
+
+;$ORIGIN rrhh.seniaTIC.org.
+;@       IN      NS      dns3 
+;dns3    IN  A   192.168.10.5
+
+
+$ORIGIN admin.seniaTIC.org.
+@       IN      NS      dns3
+dns3    IN  A   192.168.10.5

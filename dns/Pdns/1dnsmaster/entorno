@@ -1,0 +1,14 @@
+# Creamos la red LAN en el entorno que vamos a virtualizar de esta manera nos permite 
+# probar la resolucion inversa.
+
+docker network create --subnet 192.168.10.0/24 --gateway 192.168.10.1 LAN
+
+
+
+## Creamos el contendor de pruebas en la misma red
+docker run -it -d --network LAN --name vpc01 profesorjavi/vpc_gns3
+
+#Probamos la ejecución
+docker exec -it vpc01 dig @dnsprincipal -x 192.168.10.11 
+docker exec -it vpc01 dig @dnsprincipal www.seniaTIC.org 
+
