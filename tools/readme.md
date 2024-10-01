@@ -1,2 +1,5 @@
-![ss](./ss.md)
-![systemctl](./systemctl.md)
+# tools 
+
+[ss](./ss.md)
+
+[systemctl](./systemctl.md)
