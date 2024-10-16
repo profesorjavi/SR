@@ -1,5 +1,5 @@
 # Protocolo dns
 
-[Introdución](./Tdns/dns.md)
+[Introdución](./Tdns/)
 
 # Materiales Prácticos
