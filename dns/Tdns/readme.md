@@ -50,15 +50,7 @@
 - **La propagación** DNS es el proceso mediante el cual los cambios en los registros DNS (como una nueva dirección IP asignada a un dominio o una actualización de los servidores de nombres) se distribuyen y se reflejan en todos los servidores DNS de todo el mundo. Este proceso ocurre cada vez que se realizan modificaciones en los registros DNS de un dominio, como al cambiar de servidor web o cuando se asigna una nueva dirección IP a un dominio.
 
 ### 11. Comandos Relativos a la Resolución de Nombres
-- **nslookup**: Herramienta para consultar servidores DNS.
 - **dig**: Herramienta avanzada para consultas DNS.
 - **host**: Comando simple para resolver nombres de dominio.
+- **nslookup**: Herramienta para consultar servidores DNS.
 
-### 12. El Cliente del Servicio de Nombres de Dominio. Configuración
-- **Configuración del Cliente DNS**: Configuración de resolutores en sistemas operativos para utilizar servidores DNS específicos.
-
-### 13. El Servidor de Nombres de Dominio. Configuración
-- **Configuración del Servidor DNS**: Instalación y configuración de software DNS como BIND, configurando zonas y registros.
-
-### 14. Herramientas Gráficas de Configuración
-- **Herramientas Gráficas**: Interfaces como Webmin para la administración de servidores DNS.
