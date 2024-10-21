@@ -99,46 +99,10 @@ Cuando configuras un servidor DNS como **BIND9** en Ubuntu Server (por ejemplo, 
 
    Con esta configuración, **systemd-resolved** ya no escuchará en el puerto 53, liberando el puerto para que BIND9 lo utilice.
 
-2. **Configurar BIND9**:
-   Asegúrate de que BIND9 está correctamente instalado y configurado para actuar como servidor DNS.
+2. **Configurar Servidor DNSMASQ - BIND9**:
+   
 
-   - Instala BIND9 si aún no lo has hecho:
-     ```bash
-     sudo apt update
-     sudo apt install bind9
-     ```
-
-   - Luego, edita el archivo de configuración principal de BIND9:
-     ```bash
-     sudo nano /etc/bind/named.conf.options
-     ```
-
-   - En este archivo, configura los servidores DNS a los que BIND reenviará consultas que no pueda resolver localmente. Asegúrate de definir adecuadamente las interfaces en las que BIND9 escuchará:
-     ```ini
-     options {
-         directory "/var/cache/bind";
-
-         // Forward DNS queries to upstream servers
-         forwarders {
-             8.8.8.8;  // Google DNS
-             1.1.1.1;  // Cloudflare DNS
-         };
-
-         // Listen on specific IP addresses
-         listen-on { any; };
-         listen-on-v6 { any; };
-
-         // Enable recursion
-         recursion yes;
-     };
-     ```
-
-   - Reinicia BIND9 para aplicar los cambios:
-     ```bash
-     sudo systemctl restart bind9
-     ```
-
-3. **Actualizar `/etc/resolv.conf` para usar BIND9 como el DNS principal**:
+3. **Actualizar `/etc/resolv.conf` para usar DNSMASQ/BIND9 como el DNS principal**:
    El archivo `/etc/resolv.conf` contiene la dirección del servidor DNS que el sistema utiliza para resolver nombres de dominio. Asegúrate de que está configurado para usar BIND9.
 
    - Verifica si `/etc/resolv.conf` está enlazado a **systemd-resolved**. Si es así, primero remueve el enlace:

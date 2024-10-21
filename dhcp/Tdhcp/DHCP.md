@@ -103,6 +103,13 @@ Al expirar el temporizador T2 (tiempo de reenganche), el cliente DHCP enviará u
 Al acabar el alquiler (T3 expira), el cliente DHCP debe devolver su dirección IP y cesar toda acción con dicha dirección IP en la red. El cliente DHCP no siempre tiene que esperar la expiración del alquiler para terminar el uso de una dirección IP. Éste puede renunciar voluntariamente a una dirección IP, cancelando su alquiler. Por ejemplo, el usuario de un computador portátil podría conectarse a la red para una actividad particular. El servidor DHCP de la red podría colocar la dirección del alquiler por una hora. Suponiendo que el usuario acabe su tarea en 30 minutos, entonces se desconectará de la red al cabo de dicho lapso. Cuando el usuario se libera armoniosamente, el cliente DHCP enviará un mensaje DHCPRELEASE al servidor DHCP para cancelar el alquiler. La dirección IP ahora estará disponible.
 
 Si los clientes DHCP operan en ordenadores que tienen disco duro, la dirección IP asignada puede ser almacenada en este dispositivo y, cuando la computadora reinicie sus operaciones, puede hacer una nueva petición usando esta dirección IP.
+  
+
+
+[explicaión detallada](https://youtu.be/4QRJZQYpdGU?feature=shared)
+   
+
+   
 
 ## DHCP Relay
 es una función que permite la comunicación entre clientes DHCP y servidores DHCP en diferentes subredes o redes separadas por enrutadores. El DHCP Relay es esencial cuando los clientes DHCP y los servidores DHCP no se encuentran en la misma red local o segmento de broadcast.
