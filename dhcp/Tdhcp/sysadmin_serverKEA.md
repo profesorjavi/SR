@@ -33,8 +33,9 @@ sudo apt install kea-dhcp4-server kea-dhcp6-server
    ```bash
    sudo dhclient -r && sudo dhclient
    ```
+    O bien, dependiendo del cliente [dhcpdc](./sysadmin_clientedhcp)
 
-3. **Liberar concesiones**:
+3. **Liberar concesiones desde KEA**:
    No hay un comando directo para liberar concesiones desde el servidor KEA. Sin embargo, puedes reiniciar el servidor KEA o eliminar concesiones manualmente desde la base de datos.
 
 4. **Comandos para gestionar KEA**:
@@ -52,38 +53,9 @@ sudo apt install kea-dhcp4-server kea-dhcp6-server
      sudo systemctl restart kea-dhcp4-server
      ```
 
-### 4. Configuración Básica del Servidor DHCP KEA
 
-El archivo de configuración `/etc/kea/kea-dhcp4.conf` tiene una estructura JSON. Aquí puedes configurar rangos de direcciones, opciones como la puerta de enlace predeterminada y los servidores DNS.
 
-Ejemplo básico de configuración:
-
-```json
-{
-    "Dhcp4": {
-        "interfaces-config": {
-            "interfaces": [ "eth0" ]
-        },
-        "lease-database": {
-            "type": "memfile",
-            "persist": true,
-            "name": "/var/lib/kea/kea-leases4.csv"
-        },
-        "subnet4": [
-            {
-                "subnet": "192.168.1.0/24",
-                "pools": [ { "pool": "192.168.1.100 - 192.168.1.200" } ],
-                "option-data": [
-                    { "name": "routers", "data": "192.168.1.1" },
-                    { "name": "domain-name-servers", "data": "8.8.8.8, 8.8.4.4" }
-                ]
-            }
-        ]
-    }
-}
-```
-
-### 5. Logs y Monitoreo
+### 4. Logs y Monitoreo
 
 Los logs del servidor KEA se almacenan en `/var/log/syslog`. Para visualizar eventos recientes:
 ```bash
@@ -101,6 +73,3 @@ Kea permite la gestión de concesiones y configuraciones a través de su API RES
    ```bash
    curl -X POST -d '{ "command": "lease4-get", "arguments": { "ip-address": "192.168.1.101" } }' http://localhost:8080/
    ```
-
-2. **Agregar una nueva subred**:
-   Puedes agregar nuevas subredes dinámicamente mediante la API REST.
