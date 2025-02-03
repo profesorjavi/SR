@@ -1,3 +1,4 @@
+
 ### **Prueba 1: Configuración de NAT y conectividad en MikroTik**  
 
 #### **Objetivo**  
@@ -6,8 +7,7 @@ Configurar una red con un router MikroTik para proporcionar acceso a internet a 
 #### **Descripción**  
 El router MikroTik se conecta a Internet a través de su interfaz WAN, obteniendo una dirección IP mediante DHCP. La interfaz LAN del MikroTik está configurada con la dirección **192.168.100.1/24** y debe actuar como puerta de enlace para los dispositivos de la red local.  
 
-[ejercicioNAT](e1_NAT.md)
-
+![SNAT](e1_NAT.png)
 
 1. **Configurar SNAT en MikroTik**  
    - Explicar qué es SNAT y su utilidad en redes privadas.  
