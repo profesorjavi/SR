@@ -25,7 +25,7 @@ SFTP o SSH File Transfer Protocol es un protocolo que «simula» el comportamien
 
 Tanto los datos de control como de transferencia se transmiten siempre encriptados y por un único canal, utilizando para ello el puerto 22 al igual que el protocolo SSH (Secure SHell) sobre el que está construido. Posiblemente por este motivo muchos servidores FTP implementan los protocolos FTP Y FTPS pero no SFTP. En su lugar podemos ver implementaciones  de servidores SFTP de la mano de los propios servidores de SSH, algunos ejemplos son OpenSSH o LSH.
 
-## Modos de conexión
+## Modos de conexión en FTP
 
 ### Modo Activo
 En modo Activo, el servidor siempre crea el canal de datos en su puerto 20, mientras que en el lado del cliente el canal de datos se asocia a un puerto aleatorio mayor que el 1024. Para ello, el cliente manda un comando PORT al servidor por el canal de control indicándole ese número de puerto, de manera que el servidor pueda abrirle una conexión de datos por donde se transferirán los archivos y los listados, en el puerto especificado.
