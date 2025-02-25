@@ -20,9 +20,9 @@ Para implementar servicios de **streaming** utilizando **Nginx**, es importante 
          - **VP9**: Codec desarrollado por Google, usado en YouTube.
      - **Contenedores:** 
       Los contenedores encapsulan video, audio y metadatos en un solo archivo. Algunos formatos comunes son:
-      - **MP4**: Amplia compatibilidad y eficiencia.
-      - **TS (Transport Stream)**: Utilizado en transmisión digital y HLS.
-      - **MKV**: Formato flexible con soporte para múltiples pistas.
+         - **MP4**: Amplia compatibilidad y eficiencia.
+         - **TS (Transport Stream)**: Utilizado en transmisión digital y HLS.
+         - **MKV**: Formato flexible con soporte para múltiples pistas.
 
    - **Protocolos de Streaming:**
      - **HLS (HTTP Live Streaming):** Segmentación de video en archivos `.m3u8` y `.ts`.
@@ -38,6 +38,7 @@ Para implementar servicios de **streaming** utilizando **Nginx**, es importante 
 ### 5. **Conceptos de Codificación de Video**
    - **FFmpeg:** Herramienta esencial para convertir, segmentar y procesar video.
      - Comandos comunes: `-c:v` (codec de video), `-c:a` (codec de audio), `-f` (formato de salida), `-hls_time` (duración de segmentos HLS).
+         **["mas información ...."](ffmpeg.md)**
    - **Resolución y Bitrate:** Ajustar la calidad del video según el ancho de banda disponible.
    - **Transcodificación:** Convertir video de un formato a otro en tiempo real o por lotes.
 
@@ -46,7 +47,7 @@ Para implementar servicios de **streaming** utilizando **Nginx**, es importante 
 ### 6. **Conceptos de Escalabilidad y Rendimiento**
    - **CDN (Content Delivery Network):** Distribuir archivos de video y páginas web en servidores cercanos al usuario para reducir la latencia.
    - **Balanceo de Carga:** Distribuir el tráfico entre múltiples servidores para evitar sobrecargas.
-   - **Optimización de Nginx:** Ajustar parámetros como `worker_processes`, `worker_connections`, y `keepalive_timeout` para mejorar el rendimiento.
+   - **Optimización de Nginx:** Ajustar parámetros como `worker_processes`, `worker_connections`, y `keepalive_timeout` para mejorar el rendimiento.  **[más información ...](optimizacionnginx.md)**
 
 ---
 
@@ -88,6 +89,8 @@ RTMP no es un protocolo basado en HTTP, ya que funciona a través de conexiones 
 HLS (HTTP Live Streaming) es un protocolo desarrollado por Apple basado en HTTP para la distribución de contenido de video. Se usa ampliamente debido a su compatibilidad con la web y dispositivos móviles.
 
 **Diferencias clave entre RTMP y HLS:**
+
+
 | Característica  | RTMP | HLS |
 |----------------|------|-----|
 | Latencia | Baja (~2-5s) | Alta (~10-30s) |
