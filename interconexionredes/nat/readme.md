@@ -6,6 +6,8 @@ Que un dispositivo Haga de router significa simplemente reenviar paquetes entre 
 
 Que un dispositivo configure SNAT (Source NAT) implica que el router, además de reenviar los paquetes, modifica la dirección IP de origen de los paquetes salientes.
 
+![natimagen](nat.png)
+
 ## Tipos de NAT
 
 - **SNAT (Source NAT):** Cambia la dirección IP de origen de los paquetes que salen de la red local hacia el exterior. Es comúnmente usado para que varios dispositivos compartan una única IP pública.
