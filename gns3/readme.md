@@ -1,5 +1,6 @@
 ### Batería de pruebas
 
+1. [CheatSheet](bateria/cheatsheet.md)
 1. [Configura SNAT](bateria/e1_NAT.md)
 1. [DNS](bateria/e2_DNS.md)
 1. [DHCP](bateria/e3_1_DHCP.md)
