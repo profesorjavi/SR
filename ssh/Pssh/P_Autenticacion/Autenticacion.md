@@ -44,6 +44,20 @@ $ ssh-copy-id usuario@servidor
 Se te pedirá la contraseña del usuario en el servidor para completar la copia de la clave pública.
 El comando ssh-copy-id es una utilidad que se utiliza para copiar la clave pública de un usuario al archivo ~/.ssh/authorized_keys en el servidor
 
+**¿Qué pasa si no usas el nombre por defecto para la clave?**
+
+Si al generar el par de claves SSH especificas un nombre diferente al predeterminado (`id_rsa`), deberás indicar la ruta de la clave privada al conectarte al servidor. Por ejemplo, si tu clave privada se llama `mi_clave_ssh`, el comando sería:
+
+```sh
+$ ssh -i ~/.ssh/mi_clave_ssh usuario@servidor
+```
+
+De igual forma, al copiar la clave pública al servidor con `ssh-copy-id`, especifica el archivo:
+
+```sh
+$ ssh-copy-id -i ~/.ssh/mi_clave_ssh.pub usuario@servidor
+```
+
 **3. Configurar OpenSSH para la autenticación mediante clave pública**
 Asegúrate de que la autenticación mediante clave pública esté habilitada en la configuración de OpenSSH. Para hacerlo, edita el archivo de configuración del servidor SSH:
 
@@ -77,6 +91,8 @@ $ chmod 600 ~/.ssh/id_rsa
 ```
 
 Esto evita que otros usuarios del sistema puedan acceder a tu clave privada.
+
+![Ubicación de las llaves SSH](http://codigoelectronica.com/b/oscardevops/images/2023/07/16898773925121689877392512ubicaciondelasllavesssh.png)
 
 ## Autenticación mediante certificado
 
