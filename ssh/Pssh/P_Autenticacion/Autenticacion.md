@@ -58,7 +58,25 @@ Asegúrate de que las siguientes líneas estén configuradas de esta manera:
 
 La primera línea habilita la autenticación mediante clave pública y la segunda deshabilita la autenticación mediante contraseña para mejorar la seguridad.
 
+**4. Conectarse al servidor usando la clave privada**
 
+Para conectarte al servidor utilizando la autenticación por clave pública, usa el siguiente comando desde tu máquina cliente:
+
+```sh
+$ ssh -i ~/.ssh/id_rsa usuario@servidor
+```
+
+Donde `~/.ssh/id_rsa` es la ruta a tu clave privada, `usuario` es tu nombre de usuario en el servidor y `servidor` es la dirección IP o el nombre del host.
+
+**Permisos de la clave privada**
+
+Es importante que la clave privada tenga permisos restringidos para garantizar su seguridad. Asegúrate de que solo tu usuario pueda leerla:
+
+```sh
+$ chmod 600 ~/.ssh/id_rsa
+```
+
+Esto evita que otros usuarios del sistema puedan acceder a tu clave privada.
 
 ## Autenticación mediante certificado
 
