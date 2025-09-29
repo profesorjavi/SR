@@ -46,6 +46,11 @@ El archivo de configuración principal se encuentra en `/etc/ssh/sshd_config`. A
   ```bash
   AllowUsers usuario1 usuario2
   ```
+- **comprobar cambios aplicados**: 
+ te está mostrando la configuración efectiva después de aplicar todo (/etc/ssh/sshd_config
+```bash
+  sshd -T
+  ```
 
 - **Cambio del puerto por defecto (22)**: Cambiar el puerto por defecto es una medida de seguridad básica.
   ```bash
