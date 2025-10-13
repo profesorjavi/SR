@@ -54,3 +54,35 @@
 - **host**: Comando simple para resolver nombres de dominio.
 - **nslookup**: Herramienta para consultar servidores DNS.
 
+### 12. Tipos de Servidores DNS: Maestro y Esclavo, y Transferencia de Zona
+
+- **Servidor Maestro (Primary/Master)**: Es el servidor que contiene la copia original y editable de la zona DNS. Todas las modificaciones se realizan en este servidor.
+- **Servidor Esclavo (Secondary/Slave)**: Mantiene una copia de solo lectura de la zona DNS, obtenida desde el servidor maestro mediante transferencia de zona.
+
+#### Transferencia de Zona
+
+- **Transferencia de Zona AXFR**: Es el método estándar para copiar toda la zona DNS desde el maestro al esclavo. Se configura en el archivo de zona del maestro permitiendo la transferencia al esclavo.
+- **Transferencia de Zona IXFR**: Permite transferir solo los cambios incrementales en la zona, optimizando el proceso.
+
+**Ejemplo de configuración en BIND:**
+
+En el servidor maestro (`named.conf`):
+
+```conf
+zone "example.com" {
+  type master;
+  file "/etc/bind/db.example.com";
+  allow-transfer { 192.0.2.2; }; # IP del esclavo
+}
+```
+
+En el servidor esclavo (`named.conf`):
+
+```conf
+zone "example.com" {
+  type slave;
+  masters { 192.0.2.1; }; # IP del maestro
+}
+```
+
+La transferencia de zona se realiza automáticamente cuando el esclavo detecta cambios en el maestro o manualmente con comandos como `rndc reload` o `rndc transfer`.
