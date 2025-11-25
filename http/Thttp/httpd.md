@@ -123,7 +123,102 @@ El usuario tiene un formulario y cuando pulsa el botón enviar, se envía una so
 * **Autentificación**: A veces, debido a cuestiones de personalización o a políticas de restricción, las aplicaciones Web deben conocer y verificar la identidad del usuario, mediante nombre de usuario y contraseña.
 * **Conexiones persistentes**: Permiten que varias peticiones y respuestas sean transferidas usando la misma conexión TCP.
 
-  
+
+
+Aquí tienes **apuntes claros y ordenados** sobre las diferentes versiones del protocolo HTTP y con qué **protocolos de transporte (TCP o UDP)** funcionan:
+
+---
+
+## Versiones del Protocolo HTTP
+
+#### 1. **HTTP/0.9**
+
+* **Año:** 1991
+* **Características principales:**
+
+  * Primera versión del protocolo.
+  * Solo permitía **peticiones GET**.
+  * Las respuestas eran únicamente **documentos HTML sin cabeceras**.
+* **Transporte:**
+
+  * **TCP**
+* **Motivo:**
+
+  * Requería una conexión fiable para transferir documentos completos sin errores.
+
+---
+
+#### 2. **HTTP/1.0**
+
+* **Año:** 1996
+* **Novedades:**
+
+  * Cabeceras en petición y respuesta.
+  * Soporte para distintos tipos de contenido (MIME).
+* **Conexión:**
+
+  * Conexiones **no persistentes** (una conexión TCP por petición).
+* **Transporte:**
+
+  * **TCP**
+
+---
+
+#### 3. **HTTP/1.1**
+
+* **Año:** 1997
+* **Mejoras:**
+
+  * Conexiones **persistentes** (`keep-alive`).
+  * Soporte para **pipelining** (aunque poco usado).
+  * Mejor gestión de caché.
+* **Transporte:**
+
+  * **TCP**
+
+---
+
+#### 4. **HTTP/2**
+
+* **Año:** 2015
+* **Mejoras clave:**
+
+  * Multiplexación de streams en una misma conexión.
+  * Compresión de cabeceras (HPACK).
+  * Servidor puede enviar datos de forma proactiva (server push).
+* **Transporte:**
+
+  * **TCP**
+* **Motivo:**
+
+  * Se construye sobre una conexión fiable y ordenada, lo que simplifica el diseño del protocolo.
+
+---
+
+#### 5. **HTTP/3**
+
+* **Año:** 2022 (estandarización IETF)
+* **Cambio fundamental:**
+
+  * Deja de usar TCP y pasa a usar **QUIC** como protocolo de transporte.
+* **¿Qué es QUIC?**
+
+  * Un protocolo de transporte desarrollado por Google, implementado **sobre UDP**, pero añadiendo:
+
+    * Control de congestión propio
+    * Seguridad equivalente a TLS
+    * Multiplexación sin bloqueo por cabecera (no suffer head-of-line blocking como TCP)
+* **Transporte:**
+
+  * **UDP** (a través de QUIC)
+* **Ventajas:**
+
+  * Establece conexiones y cifrado más rápido (0-RTT).
+  * Mejora el rendimiento en redes móviles con pérdida de paquetes.
+
+
+
+
 ## SSL
 
 **SSL** es un protocolo que proporciona privacidad e integridad entre dos aplicaciones de comunicaciones utilizando HTTP. El Protocolo de transferencia de hipertexto (HTTP) para World Wide Web utiliza SSL para que las comunicaciones sean seguras. Una visión general simplificada de cómo se procesa el protocolo de enlace SSL es la siguiente: 
