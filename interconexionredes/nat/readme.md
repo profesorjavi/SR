@@ -11,6 +11,7 @@ Que un dispositivo configure SNAT (Source NAT) implica que el router, además de
 ## Tipos de NAT
 
 - **SNAT (Source NAT):** Cambia la dirección IP de origen de los paquetes que salen de la red local hacia el exterior. Es comúnmente usado para que varios dispositivos compartan una única IP pública.
+- **Masquerade:** Es una variante de **SNAT** en la que el router utiliza automáticamente la IP que tenga la interfaz de salida. Es apropiada cuando el router obtiene una IP dinámica.
 - **DNAT (Destination NAT):** Cambia la dirección IP de destino de los paquetes que llegan desde el exterior, redirigiéndolos a un dispositivo específico dentro de la red local.
 
 ## Funcionamiento de SNAT
