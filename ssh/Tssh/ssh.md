@@ -59,9 +59,7 @@ El archivo de configuración principal se encuentra en `/etc/ssh/sshd_config`. A
 
 
 Recuerda reiniciar el servicio después de realizar cambios:
-```bash
-sudo systemctl restart ssh
-```
+
 
 #### Autenticación mediante clave pública/privada
 Usar claves SSH en lugar de contraseñas mejora la seguridad. Para configurarlo:
