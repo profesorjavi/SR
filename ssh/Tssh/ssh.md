@@ -78,6 +78,16 @@ Usar claves SSH en lugar de contraseñas mejora la seguridad. Para configurarlo:
    ```bash
    ssh usuario@ip_servidor
    ```
+¿Qué ocurre al conectarte?
+
+El cliente SSH solicita conectarse como javi.
+
+El servidor busca una clave pública autorizada para ese usuario.
+El servidor envía un desafío criptográfico que el cliente debe resolver mediante una operación con su clave privada.
+El servidor verifica la respuesta utilizando la clave pública y, si es válida, permite el acceso.
+
+La clave privada no se envía al servidor. En realidad, SSH utiliza un protocolo de autenticación con firma digital y desafíos criptográficos.
+
 
 ### 2.4. Túneles SSH
 SSH también permite crear túneles para transmitir datos de forma segura. Algunos tipos de túneles son:
